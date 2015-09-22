@@ -48,11 +48,35 @@ Accounts.ui.config({
             value: 'us'
           }, {
             id: 2,
-            label: 'Spain',
-            value: 'es',
+            label: 'North Pole',
+            value: 'NP',
         }],
         visible: true
-    }, {
+    },
+{
+        fieldName: 'Hall',
+        fieldLabel: 'Hall',
+        inputType: 'select',
+        showFieldLabel: true,
+        empty: 'Please select your residence hall',
+        data: [{
+            id: 1,
+            label: 'Reitman',
+            value: 'R'
+          }, {
+            id: 2,
+            label: 'Cable',
+            value: 'C',
+
+        }, {
+            id: 2,
+            label: 'Gordon',
+            value: 'G',
+            
+        }],
+        visible: true
+    },
+     {
         fieldName: 'terms',
         fieldLabel: 'I accept the terms and conditions',
         inputType: 'checkbox',

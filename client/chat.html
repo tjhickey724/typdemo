@@ -2,7 +2,10 @@
 	
 	{{#if currentUser}}
 	<form id="chatform">
-		<input type="text" id="chatinput" placeholder="Enter your chat text here" size="100%">
+		Name:<input type="text" id="Name" size="100%"> <br>
+		Hall:
+	<input type="text" id="Hall" size="100%"> <br>
+		<input type="submit" id="chatinput" size="100%"> <br>
 	</form>
 	{{else}}
 	You must be signed in to post comments!
@@ -23,6 +26,6 @@
 
 <template name="chatitem">
 	<tr>
-		<td>{{who}} said </td> <td>{{what}}</td><td> at {{when}}</td>
+		<td>{{who}} said </td> <td>{{where}}</td><td> at {{when}}</td>
 	</tr>
 </template>
