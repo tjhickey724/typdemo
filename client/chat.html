@@ -2,7 +2,13 @@
 	
 	{{#if currentUser}}
 	<form id="chatform">
-		<input type="text" id="chatinput" placeholder="Enter your chat text here" size="100%">
+
+		Social Questions: <input type="text" id="socialquestions"  size="100%">  <br> 
+		Sexual Questions: <input type="text" id="sexualquestions"  size="100%">  <br> 
+		Other  Questions: <input type="text" id="otherquestions"  size="100%">   <br> 
+			<input type="submit">
+
+
 	</form>
 	{{else}}
 	You must be signed in to post comments!
@@ -10,7 +16,16 @@
 	
 	<h2>Showing the last 10 of {{numchats}} chats</h2>
   <table class="table table-bordered">
-	  <tbody>
+	  	<thead>
+	  		<tr>
+	  			<td>name</td>
+	  			<td>social</td>
+	  			<td>sexual</td>
+	  			<td>other</td>
+	  			<td>date</td>
+	  		</tr>
+	  	</thead>
+<tbody>
 	{{#each chatlines}}
 	{{> chatitem}}
 	{{/each}}
@@ -23,6 +38,10 @@
 
 <template name="chatitem">
 	<tr>
-		<td>{{who}} said </td> <td>{{what}}</td><td> at {{when}}</td>
+		<td>{{who}} said </td> 
+		<td>{{socialquestions}}</td>
+		<td>{{sexualquestions}}</td>
+		<td>{{otherquestions}}</td>
+		<td> at {{when}}</td>
 	</tr>
 </template>

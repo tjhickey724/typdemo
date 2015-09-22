@@ -3,7 +3,10 @@ Template.chat.events({
 		
 		event.preventDefault();
 		
-		var x = $("#chatinput").val()
+		var socialquestions = $("#socialquestions").val();
+		var sexualquestions = $("#sexualquestions").val();
+		var otherquestions = $("#otherquestions").val();
+		console.log(socialquestions);
 		
 		$("#chatinput").val("");
 
@@ -13,7 +16,9 @@ Template.chat.events({
 		  	{
 				uid:Meteor.userId(),  
 				who:profile["firstName"]+" "+profile["lastName"], 
-				what:x,
+				socialquestions:socialquestions,
+				sexualquestions:sexualquestions,
+				otherquestions:otherquestions,
 				when: new Date()
 			};
 			
