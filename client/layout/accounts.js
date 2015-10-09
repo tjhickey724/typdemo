@@ -1,9 +1,9 @@
-
+    
 Accounts.ui.config({
     requestPermissions: {},
     extraSignupFields: [{
-        fieldName: 'firstName',
-        fieldLabel: 'First name',
+        fieldName: 'first bame',
+        fieldLabel: 'last name',
         inputType: 'text',
         visible: true,
         validate: function(value, errorFunction) {
@@ -64,7 +64,7 @@ Accounts.ui.config({
             } else {
                 errorFunction('You must accept the terms and conditions.');
                 return false;
-            }
+            } 
         }
     }]
 });

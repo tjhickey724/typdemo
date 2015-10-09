@@ -2,11 +2,13 @@
 	
 	{{#if currentUser}}
 	<form id="chatform">
-		<input type="text" id="chatinput" placeholder="Enter your chat text here" size="100%">
-	</form>
-	{{else}}
-	You must be signed in to post comments!
-	{{/if}}
+		name:<input type="id" id="name" size="100%"><br>
+		hall <input type="id" id="residence hall " size="100%"><br>
+		<input type="id" id="submit"><br>
+		
+
+
+	
 	
 	<h2>Showing the last 10 of {{numchats}} chats</h2>
   <table class="table table-bordered">
@@ -16,6 +18,10 @@
 	{{/each}}
 </tbody>
 </table>
+</form>
+	{{else}}
+	You must be signed in to post comments!
+	{{/if}}
 
 
 
