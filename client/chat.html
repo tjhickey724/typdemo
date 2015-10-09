@@ -2,13 +2,16 @@
 	
 	{{#if currentUser}}
 	<form id="chatform">
-		name:<input type="id" id="name" size="100%"><br>
-		hall <input type="id" id="residence hall " size="100%"><br>
-		<input type="id" id="submit"><br>
-		
 
+		Name:<input type="text" id="Name" size="100%"> <br>
+		Hall:
+	<input type="text" id="Hall" size="100%"> <br>
+		<input type="submit" id="chatinput" size="100%"> <br>
+	</form>
+	{{else}}
+	You must be signed in to post comments!
+	{{/if}}
 
-	
 	
 	<h2>Showing the last 10 of {{numchats}} chats</h2>
   <table class="table table-bordered">
@@ -29,6 +32,6 @@
 
 <template name="chatitem">
 	<tr>
-		<td>{{who}} said </td> <td>{{what}}</td><td> at {{when}}</td>
+		<td>{{who}} said </td> <td>{{where}}</td><td> at {{when}}</td>
 	</tr>
 </template>
