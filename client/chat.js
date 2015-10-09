@@ -3,10 +3,12 @@ Template.chat.events({
 		
 		event.preventDefault();
 		
+
 		var Name = $("#Name").val()
 		console.log(Name);
 		var Hall = $("#Hall").val()
 		console.log(Hall);
+
 		
 		$("#Name").val("");
 		$("#Hall").val("");
