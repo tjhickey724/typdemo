@@ -3,22 +3,21 @@ Template.chat.events({
 		
 		event.preventDefault();
 		
-		var socialquestions = $("#socialquestions").val();
-		var sexualquestions = $("#sexualquestions").val();
-		var otherquestions = $("#otherquestions").val();
-		console.log(socialquestions);
+		var questions = $("#questions").val();
+		var comments  = $("#comments").val();
+		console.log(questions);
+		console.log(comments);
 		
-		$("#chatinput").val("");
-
+		$("#questions").val("");
+		$("#comments").val("");
 		var profile = Meteor.user().profile;
 		
 		var chatline = 
 		  	{
 				uid:Meteor.userId(),  
 				who:profile["firstName"]+" "+profile["lastName"], 
-				socialquestions:socialquestions,
-				sexualquestions:sexualquestions,
-				otherquestions:otherquestions,
+				questions:questions,
+				comments:comments,
 				when: new Date()
 			};
 			

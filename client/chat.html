@@ -1,11 +1,13 @@
 <template name="chat">
+	<h1> Ask/ Comments </h1> 
+	<p> On this page you can ask any questions about this app or give any comments/concerns about suggestions to improve the app. 
+	</p> 
 	
 	{{#if currentUser}}
 	<form id="chatform">
 
-		Social Questions: <input type="text" id="socialquestions"  size="100%">  <br> 
-		Sexual Questions: <input type="text" id="sexualquestions"  size="100%">  <br> 
-		Other  Questions: <input type="text" id="otherquestions"   size="100%">  <br> 
+		Questions: <input type="text" id="questions"  size="100%">  <br> 
+		Comments: <input type="text" id="comments"   size="100%">  <br> 
 			<input type="submit">
 
 
@@ -14,20 +16,19 @@
 	You must be signed in to post comments!
 	{{/if}}
 	
-	<h2>Showing the last 10 of {{numchats}} chats</h2>
+	<h2>Showing the last 10 of {{numchats}} chats ...</h2>
   <table class="table table-bordered">
 	  	<thead>
 	  		<tr>
-	  			<td>Name</td>
-	  			<td>Social</td>
-	  			<td>Sexual</td>
-	  			<td>Other</td>
-	  			<td>Date</td>
+	  			<td>Name </td>
+	  			<td>Questions </td>
+	  			<td>Comments </td>
+	  			<td>Date </td>
 	  		</tr>
 	  	</thead>
 <tbody>
 	{{#each chatlines}}
-	{{> chatitem}}
+	{{>chatitem}}
 	{{/each}}
 </tbody>
 </table>
@@ -39,9 +40,8 @@
 <template name="chatitem">
 	<tr>
 		<td>{{who}} said </td> 
-		<td>{{socialquestions}}</td>
-		<td>{{sexualquestions}}</td>
-		<td>{{otherquestions}}</td>
-		<td>at {{when}}</td>
+		<td>{{questions}} </td>
+		<td>{{comments}} </td>
+		<td>at {{when}} </td>
 	</tr>
 </template>

@@ -1,0 +1,48 @@
+<template name="other">
+{{#if currentUser}}
+	<form id="otherform">
+
+		Other Questions: <input type="text" id="otherquestions"  size="100%">  <br> 
+		 
+			<input type="submit">
+
+
+	</form>
+	{{else}}
+	You must be signed in to post comments!
+	{{/if}}
+	
+	<h2>Showing the last 10 of {{numchats}} chats ...</h2>
+  <table class="table table-bordered">
+	  	<thead>
+	  		<tr>
+	  			<td>Name </td>
+	  			<td>Other </td>
+	  			<td>Date </td>
+	  		</tr>
+	  	</thead>
+<tbody>
+	{{#each otherlines}}
+	{{>otheritem}}
+	{{/each}}
+</tbody>
+</table>
+
+
+
+</template>
+
+<template name="otheritem">
+	<tr>
+		<td>{{who}} said </td> 
+		<td>{{otherquestions}} </td>
+		<td>at {{when}} </td>
+	</tr>
+
+
+
+
+
+
+
+</template>

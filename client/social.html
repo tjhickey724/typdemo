@@ -1,0 +1,41 @@
+<template name="social">
+{{#if currentUser}}
+	<form id="socialform">
+
+		Social Questions: <input type="text" id="socialquestions"  size="100%">  <br> 
+		 
+			<input type="submit">
+
+
+	</form>
+	{{else}}
+	You must be signed in to post comments!
+	{{/if}}
+	
+	<h2>Showing the last 10 of {{numchats}} chats ...</h2>
+  <table class="table table-bordered">
+	  	<thead>
+	  		<tr>
+	  			<td>Name </td>
+	  			<td>Social </td>
+	  			<td>Date </td>
+	  		</tr>
+	  	</thead>
+<tbody>
+	{{#each sociallines}}
+	{{>socialitem}}
+	{{/each}}
+</tbody>
+</table>
+
+
+
+</template>
+
+<template name="socialitem">
+	<tr>
+		<td>{{who}} said </td> 
+		<td>{{socialquestions}} </td>
+		<td>at {{when}} </td>
+	</tr>
+</template>
