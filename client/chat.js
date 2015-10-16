@@ -15,7 +15,7 @@ Template.chat.events({
 		var chatline = 
 		  	{
 				uid:Meteor.userId(),  
-				who:profile["firstName"]+" "+profile["lastName"], 
+				who:profile["username"], 
 				questions:questions,
 				comments:comments,
 				when: new Date()

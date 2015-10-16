@@ -8,7 +8,7 @@ Accounts.ui.config({
         visible: true,
         validate: function(value, errorFunction) {
           if (!value) {
-            errorFunction("Please write your first name");
+            errorFunction("Please write your username");
             return false;
           } else {
             return true;
