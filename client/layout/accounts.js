@@ -2,8 +2,8 @@
 Accounts.ui.config({
     requestPermissions: {},
     extraSignupFields: [{
-        fieldName: 'firstName',
-        fieldLabel: 'First name',
+        fieldName: 'username',
+        fieldLabel: 'Username',
         inputType: 'text',
         visible: true,
         validate: function(value, errorFunction) {
@@ -14,12 +14,7 @@ Accounts.ui.config({
             return true;
           }
         }
-    }, {
-        fieldName: 'lastName',
-        fieldLabel: 'Last name',
-        inputType: 'text',
-        visible: true,
-    }, {
+    }, , {
         fieldName: 'gender',
         showFieldLabel: false,      // If true, fieldLabel will be shown before radio group
         fieldLabel: 'Gender',
