@@ -4,27 +4,23 @@ Template.Printers.events({
 		event.preventDefault();
 		
 
-		var Name = $("#Name").val()
-		console.log(Name);
-		var Hall = $("#Hall").val()
-		console.log(Hall);
-		var Name = $("#printer").val()
-		console.log(Name);
-		var Hall = $("#prices").val()
-		console.log(Hall);
+		var Hall = $("#Hall").val();
+		
+		var printer = $("#Printer").val();
+		
+		var prices = $("#Price").val();
 		
 		
-		$("#Name").val("");
 		$("#Hall").val("");
-		$("#Printers").val("");
-		$("#Prices").val("");
+		$("#Printer").val("");
+		$("#Price").val("");
 
 		var profile = Meteor.user().profile;
 		
 		var printline = 
 		  	{
 				uid:Meteor.userId(),  
-				who:Name,
+				who:profile.firstName+" "+profile.lastName,
 				where:Hall,
 				when: new Date()
 			};
