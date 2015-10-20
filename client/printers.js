@@ -21,7 +21,7 @@ Template.Printers.events({
 		  	{
 				uid:Meteor.userId(),  
 				who:profile.firstName+" "+profile.lastName,
-				where:Hall,
+				where:Hall+""
 				when: new Date()
 			};
 			

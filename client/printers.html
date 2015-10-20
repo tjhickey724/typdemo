@@ -19,6 +19,15 @@
 	
 	<h2>Showing the last 20 of {{numprints}} prints</h2>
   <table class="table table-bordered">
+  		<thead>
+      <tr>
+      	<td>Name</td>
+        <td>Hall</td>
+        <td>Printer</td>
+        <td>Price</td> 
+      </tr>
+    </thead>
+
 	  <tbody>
 	{{#each printlines}}
 	{{> printitem}}
@@ -31,7 +40,11 @@
 
 <template name="printitem">
 	<tr>
-		<td>{{who}} said </td> <td>{{what}}</td><td> at {{when}} </td>
+		<td>{{who}} said </td>
+		<td> in {{Hall}}</td>
+		<td>{{printer}} </td>
+		<td>{{price}} </td>
+		<td> at {{when}} </td>
 	</tr>
 
 
