@@ -1,42 +1,16 @@
-<template name="prices">
+<template name="Prices">
 
   <div class= "jumbotron">
 
 	<img src="https://qph.is.quoracdn.net/main-qimg-4f0e68ae87ee6ae7091e33cf61b26a70?convert_to_webp=true" style="width:304px;height:228px;">
 	
 	<h1>The prices per page </h1> 
-    <h2>The power of the prints...why give money to braneis when you can help your fellow student.</h2>
+    <h2>The power of the prints...why give money to Brandeis when you can help out your fellow student.</h2>
     	</div>
 
-	{{#if currentUser}}
-	<form id="chatform">
-		name:<input type="id" id="price" size="100%"><br>
-		hall <input type="id" id="name" size="100%"><br>
-		<input type="id" id="submit"><br>
-		
-	
-	<h2>Showing the last 50 of {{numchats}} chats</h2>
-  <table class="table table-bordered">
-	  <tbody>
-	{{#each chatlines}}
-	{{> chatitem}}
-	{{/each}}
-</tbody>
-</table>
-</form>
-	{{else}}
-	You must be signed in to post comments!
-	{{/if}}
+    	
 
 </template>
-
-<template name="chatitem">
-	<tr>
-		<td>{{who}} said </td> <td>{{what}}</td><td> at {{when}}</td>
-	</tr>
-</template>
-
-
 
 
 

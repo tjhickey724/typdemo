@@ -8,7 +8,7 @@ Template.chat.events({
 		console.log(Name);
 		var Hall = $("#Hall").val()
 		console.log(Hall);
-
+		
 		
 		$("#Name").val("");
 		$("#Hall").val("");
