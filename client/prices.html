@@ -8,7 +8,25 @@
     <h2>The power of the prints...why give money to Brandeis when you can help out your fellow student.</h2>
     	</div>
 
-    	
+	{{#if currentUser}}
+	<form id="chatform">
+		name:<input type="id" id="price" size="100%"><br>
+		hall <input type="id" id="name" size="100%"><br>
+		<input type="id" id="submit"><br>
+	</form>
+	{{else}}
+	You must be signed in to post comments!
+	{{/if}}
+	
+	<h2>Showing the last 50 of {{numchats}} chats</h2>
+  <table class="table table-bordered">
+	  <tbody>
+	{{#each chatlines}}
+	{{> chatitem}}
+	{{/each}}
+</tbody>
+</table>
+	
 
 </template>
 
