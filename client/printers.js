@@ -21,7 +21,9 @@ Template.Printers.events({
 		  	{
 				uid:Meteor.userId(),  
 				who:profile.firstName+" "+profile.lastName,
-				where:Hall+""
+				where:Hall,
+				printer:
+				Price:
 				when: new Date()
 			};
 			
