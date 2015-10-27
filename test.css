@@ -1,0 +1,20 @@
+body {
+ background:blue;
+ color:#89CFF0;
+}
+
+h1 {
+ font:bold 40pt fantasy;
+}
+
+#a {
+ border: thick dashed #0070FF;
+ margin: 3in;
+ padding: 2in;
+}
+
+#b {
+ border: thin solid#D3212D;
+ margin:28px;
+ padding:3cm;
+}
