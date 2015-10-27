@@ -1,2 +1,22 @@
 #about {
-	background:
+	background: 
+	color: ;
+	}
+
+h1	{
+	font:bold 30pt Zapfino	
+	}
+
+	#p {
+		background: red;
+		color: white;
+		font: italic 20pt Zapfino font;
+	}
+
+	#b  {
+		background: black;
+		color: red;
+		border: thick solid blue;
+		margin: 1in;
+		padding: 1in;
+		}
