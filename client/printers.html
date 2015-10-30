@@ -1,25 +1,33 @@
 <template name="Printers">
 
-	<div class= "jumbotron">
+	<div class= "jumbotron"> 
 		<img src= "http://www.bestprinterunder100.com/wp-content/uploads/2013/02/printer-2.gif" 
 			style="width:304px;height:228px;">
 
-	<h1> Please add your printers </h1> 
+	<h1> Please add your printers in order to login</h1> 
     <h2>
     </h2>
     	</div>
 
 {{#if currentUser}}
 	<form id="printform">
-		Name:<input type="id" id="Name" size="100%"><br>
-		Hall:<input type="id" id="Hall" size="100%"><br>
-		Printer:<input type="id" id="Printer" size="100%"><br>
-		Price:<input type="id" id="Price" size="100%"><br>
-		<input type="submit" id="printinput" size="100%"> <br>
+		Hall:<input type="id" id="Hall" size="50%"><br>
+		Printer:<input type="id" id="Printer" size="50%"><br>
+		Price:<input type="id" id="Price" size="50%"><br>
+		<input type="submit" id="printinput" size="%"> <br>
 		
 	
 	<h2>Showing the last 20 of {{numprints}} prints</h2>
   <table class="table table-bordered">
+  		<thead>
+      <tr>
+      	<td>Name</td>
+        <td>Hall</td>
+        <td>Printer</td>
+        <td>Price</td> 
+      </tr>
+    </thead>
+
 	  <tbody>
 	{{#each printlines}}
 	{{> printitem}}
@@ -32,10 +40,20 @@
 
 <template name="printitem">
 	<tr>
+<<<<<<< HEAD
 		<td>{{who}} saidss</td>
 		 <td>{{what}}</td>
 		 <td>{{when}}</td>
 		</tr>
 		
 </template>
+=======
+		<td>{{who}} said </td>
+		<td> in {{Hall}}</td>
+		<td>{{printer}} </td>
+		<td>{{price}} </td>
+		<td> at {{when}} </td>
+	</tr>
+
+>>>>>>> origin/master
 

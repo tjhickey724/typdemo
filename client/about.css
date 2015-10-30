@@ -1,17 +1,6 @@
-<<<<<<< HEAD
-body{
-
-background-image:url(Thug.jpg);
-background:black;
-font:italic;
-colors
-
-
-}
-=======
-#printers {
-	background: white;
-	color: purple;
+#about {
+	background:green;
+	color: pink;
 	}
 
 #about .jumbotron h1	{
@@ -25,4 +14,3 @@ colors
 		color: purple;
 		font: italic 20pt Zapfino font;
 	}
->>>>>>> origin/master
