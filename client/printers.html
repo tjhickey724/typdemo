@@ -5,9 +5,7 @@
 			style="width:304px;height:228px;">
 
 	<h1> Please add your printers in order to login</h1> 
-    <h2>
-    </h2>
-    	</div>
+    </div>
 
 {{#if currentUser}}
 	<form id="printform">
@@ -15,11 +13,11 @@
 		Printer:<input type="id" id="Printer" size="50%"><br>
 		Price:<input type="id" id="Price" size="50%"><br>
 		<input type="submit" id="printinput" size="%"> <br>
-		
+	</form>
 	
 	<h2>Showing the last 20 of {{numprints}} prints</h2>
   <table class="table table-bordered">
-  		<thead>
+  	<thead>
       <tr>
       	<td>Name</td>
         <td>Hall</td>
@@ -34,20 +32,12 @@
 	{{/each}}
 	</tbody>
 </table>
-</form>
+
 {{/if}}
 </template>
 
 <template name="printitem">
 	<tr>
-<<<<<<< HEAD
-		<td>{{who}} saidss</td>
-		 <td>{{what}}</td>
-		 <td>{{when}}</td>
-		</tr>
-		
-</template>
-=======
 		<td>{{who}} said </td>
 		<td> in {{Hall}}</td>
 		<td>{{printer}} </td>
@@ -55,5 +45,5 @@
 		<td> at {{when}} </td>
 	</tr>
 
->>>>>>> origin/master
+</template>
 
