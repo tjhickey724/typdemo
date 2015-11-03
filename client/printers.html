@@ -1,57 +1,70 @@
 <template name="Printers">
 
-	<div class= "jumbotron"> 
-		<img src= "http://www.bestprinterunder100.com/wp-content/uploads/2013/02/printer-2.gif" 
-			style="width:304px;height:228px;">
+	<div class= "jumbotron">
+		<div class="row">
+			<div class="col-lg-6">
+				<img src= "http://www.bestprinterunder100.com/wp-content/uploads/2013/02/printer-2.gif" style="width:304px;height:228px;">
+			</div>
+			<div class="col-lg-6">
+				{{#if currentUser}}
+				<form id="printform" class="bg-info">
+					<div class="input-group">
+					  <span class="input-group-addon">Printer</span>
+					  <input type="text" id="Printer" placeholder="Printer Make & Model" class="form-control">
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">Duplex?</span>
+					  <select class="form-control" name="duplex" id="duplex">
+					  	<option value="">Does it print double-sided?</option>
+					  	<option value="Yes">Yes</option>
+					  	<option value="No">No</option>
+					  </select>
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">Color?</span>
+					  <select class="form-control" name="color" id="color">
+					  	<option value="">Does it print in color?</option>
+					  	<option value="Yes">Yes</option>
+					  	<option value="No">No</option>
+					  </select>
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">Hall</span>
+					  <select class="form-control" name="Hall" id="Hall">
+					  	<option value="">Select Hall where your Printer is Located</option>
+					  	<option value="Gordon">Gordon</option>
+					  	<option value="Shaefferes">Shaefferes</option>
+					  	<option value="Reitmen">Reitmen</option>
+					  </select>
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">B&W: Fee/Page in $</span>
+					  <input type="text" id="BWPrice" placeholder="Eg. 0.50 for 50 cents" class="form-control">
+					</div>
+					<div class="input-group">
+					  <span class="input-group-addon">Color: Fee/Page in $</span>
+					  <input type="text" id="ColorPrice" placeholder="Optional Unless Offering Color Printing" class="form-control">
+					</div>
+					<div class="input-group text-center">
+					  <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane-o"></i> Add New Printer</button>
+					</div>
+				</form>
+				{{else}}
+				<div class="alert alert-warning alert-dismissible" role="alert">
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				  <i class="fa fa-info-circle red"></i> Please SignIn/Join to be able to view or add printers!
+				</div>
+				{{/if}}
 
-	<h1> Please add your printers in order to login</h1> 
+			</div>
+		</div>
     </div>
 
 {{#if currentUser}}
-
-	<form id="printform" class="bg-info">
-		<div class="input-group">
-		  <span class="input-group-addon">Printer Model</span>
-		  <input type="text" id="Printer" class="form-control">
-		</div>
-		<div class="input-group">
-		  <span class="input-group-addon">Duplex?</span>
-		  <select class="form-control" name="duplex" id="duplex">
-		  	<option value="">Does it print double-sided?</option>
-		  	<option value="Yes">Yes</option>
-		  	<option value="No">No</option>
-		  </select>
-		</div>
-		<div class="input-group">
-		  <span class="input-group-addon">Color?</span>
-		  <select class="form-control" name="color" id="color">
-		  	<option value="">Does it print in color?</option>
-		  	<option value="Yes">Yes</option>
-		  	<option value="No">No</option>
-		  </select>
-		</div>
-		<div class="input-group">
-		  <span class="input-group-addon">Hall</span>
-		  <select class="form-control" name="Hall" id="Hall">
-		  	<option value="">Select Hall where your Printer is Located</option>
-		  	<option value="Gordon">Gordon</option>
-		  	<option value="Shaefferes">Shaefferes</option>
-		  	<option value="Reitmen">Reitmen</option>
-		  </select>
-		</div>
-		<div class="input-group">
-		  <span class="input-group-addon">Price/Page in $</span>
-		  <input type="text" id="Price" placeholder="Eg. 0.50 for 50 cents" class="form-control">
-		</div>
-		<div class="input-group text-center">
-		  <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane-o"></i> Submit</button>
-		</div>
-	</form>
-	
   	<br>
 	<div class="panel panel-primary">
 	  <div class="panel-heading">
-	  	<h5>Available Printers</h5>
+	  	<h5>Available Printers <span class="badge">{{numprinters}}</span></h5>
 	  </div>
 	  <div class="panel-body list-group">
 	  	{{#each printers}}
@@ -59,20 +72,27 @@
 		{{/each}}
 	  </div>
 	</div>
-
 {{/if}}
+
 </template>
 
 <template name="printer">
 	<div class="list-group-item">
-	<h5 class="list-group-item-heading"><i class="fa fa-print"></i> {{Printer}} <u>Price/Page: ${{Price}}</u></h5>
+	<h5 class="list-group-item-heading"><i class="fa fa-print"></i> {{Printer}} <span class="label label-default label-xs">${{BWPrice}}</span>
+	{{#if ColorPrice}} <span class="label label-primary label-xs">${{ColorPrice}}</span>{{/if}}
+	</h5>
     <p class="list-group-item-text">Printer Deails: Duplex Printing: {{duplex}}, Color Printing: {{color}} </p>
-    <p class="list-group-item-text post-details">
+    <p class="list-group-item-text details">
     <i class="fa fa-user"></i> {{owner}} <i class="fa fa-ellipsis-v"></i> 
-    <i class="fa fa-building"></i> {{Hall}} <i class="fa fa-ellipsis-v"></i> 
-    <button type="button" id="delete" title="Delete Post!" class="btn btn-danger btn-xs pull-right"><i class="fa fa-trash-o"></i> Delete</button>
-    <button type="button" id="viewOrders" title="View Orders!" class="btn btn-primary btn-xs pull-right"><i class="fa fa-trash-o"></i> View Orders</button>
-    <button type="button" id="submitOrder" title="Submit An Order!" class="btn btn-primary btn-xs pull-right"><i class="fa fa-trash-o"></i> Submit Order</button>
+    <i class="fa fa-building"></i> {{Hall}} <i class="fa fa-ellipsis-v"></i>
+    <i class="fa fa-shopping-cart"></i> {{numorders}} Orders Submitted
+    {{#if isOwner}}
+    <button type="button" id="delete" title="Delete Post!" class="btn btn-danger btn-xs pull-right"><i class="fa fa-trash-o"></i> Delete Printer</button>
+    <button type="button" id="viewOrders" title="View Orders!" class="btn btn-primary btn-xs pull-right"><i class="fa fa-search-plus"></i> View Print Orders</button>
+    {{else}}
+    <button type="button" id="submitOrder" title="Submit An Order!" class="btn btn-primary btn-xs pull-right"><i class="fa fa-cart-plus"></i> Submit Print Order</button>
+    <button type="button" id="contactOwner" title="Message Owner!" class="btn btn-primary btn-xs pull-right"><i class="fa fa-envelope"></i> Message Owner</button>
+    {{/if}}
     </p>
   </div>
 </template>

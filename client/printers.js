@@ -6,25 +6,27 @@ Template.Printers.events({
 
 		var Hall = $("#Hall").val();
 		var printer = $("#Printer").val();
-		var Price = $("#Price").val();
+		var BWPrice = $("#BWPrice").val();
+		var ColorPrice = $("#ColorPrice").val();
 		var duplex = $("#duplex").val();
 		var color = $("#color").val();
 		
 		$("#Hall").val("");
 		$("#Printer").val("");
-		$("#Price").val("");
+		$("#BWPrice").val("");
+		$("#ColorPrice").val("");
 		$("#duplex").val("");
 		$("#color").val("");
 
 		var profile = Meteor.user().profile;
 		
-		var printer = 
-		  	{
+		var printer = {
 				ownerId:Meteor.userId(),  
 				owner:profile.firstName+" "+profile.lastName,
 				Hall:Hall,
 				Printer:printer,
-				Price:Price,
+				BWPrice:BWPrice,
+				ColorPrice:ColorPrice,
 				color:color,
 				duplex:duplex,
 				when: new Date()
@@ -43,4 +45,30 @@ Template.Printers.helpers({
 	numprinters: function(){
 		return Printers.find().count();
 	}
+});
+
+Template.printer.helpers({
+	isOwner: function(){
+		return this.ownerId == Meteor.userId();
+	},
+	numorders: function(){
+		return Orders.find({printerId:this._id}).count();
+	}
+});
+
+Template.printer.events({
+	"click #delete": function () {
+    	Meteor.call("deletePrinter", this._id);
+    },
+
+	"click #contactOwner": function () {
+    },
+
+    "click #viewOrders": function () {
+
+    },
+    
+    "click #submitOrder": function () {
+
+    }
 });
