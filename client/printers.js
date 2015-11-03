@@ -5,39 +5,42 @@ Template.Printers.events({
 		
 
 		var Hall = $("#Hall").val();
-		
 		var printer = $("#Printer").val();
-		
-		var prices = $("#Price").val();
-		
+		var Price = $("#Price").val();
+		var duplex = $("#duplex").val();
+		var color = $("#color").val();
 		
 		$("#Hall").val("");
 		$("#Printer").val("");
 		$("#Price").val("");
+		$("#duplex").val("");
+		$("#color").val("");
 
 		var profile = Meteor.user().profile;
 		
-		var printline = 
+		var printer = 
 		  	{
-				uid:Meteor.userId(),  
-				who:profile.firstName+" "+profile.lastName,
-				where:Hall,
-				printer:
-				Price:
+				ownerId:Meteor.userId(),  
+				owner:profile.firstName+" "+profile.lastName,
+				Hall:Hall,
+				Printer:printer,
+				Price:Price,
+				color:color,
+				duplex:duplex,
 				when: new Date()
 			};
 			
-		console.dir(printline);
+		console.dir(printer);
 		
-		PrintLines.insert(printline);
+		Printers.insert(printer);
 	}
 });
 
 Template.Printers.helpers({
-	printlines: function(){
-		return PrintLines.find({},{limit:10, sort:{when:-1}});
+	printers: function(){
+		return Printers.find({},{limit:10, sort:{when:-1}});
 	},
-	numprints: function(){
-		return PrintLines.find().count();
+	numprinters: function(){
+		return Printers.find().count();
 	}
 });
