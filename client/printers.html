@@ -78,8 +78,8 @@
 
 <template name="printer">
 	<div class="list-group-item">
-	<h5 class="list-group-item-heading"><i class="fa fa-print"></i> {{Printer}} <span class="label label-default label-xs">${{BWPrice}}</span>
-	{{#if ColorPrice}} <span class="label label-primary label-xs">${{ColorPrice}}</span>{{/if}}
+	<h5 class="list-group-item-heading"><i class="fa fa-print"></i> {{Printer}} <span class="label label-default label-xs">${{BWPrice}}/page</span>
+	{{#if ColorPrice}} <span class="label label-primary label-xs">${{ColorPrice}}/page</span>{{/if}}
 	</h5>
     <p class="list-group-item-text">Printer Deails: Duplex Printing: {{duplex}}, Color Printing: {{color}} </p>
     <p class="list-group-item-text details">
@@ -88,9 +88,9 @@
     <i class="fa fa-shopping-cart"></i> {{numorders}} Orders Submitted
     {{#if isOwner}}
     <button type="button" id="delete" title="Delete Post!" class="btn btn-danger btn-xs pull-right"><i class="fa fa-trash-o"></i> Delete Printer</button>
-    <button type="button" id="viewOrders" title="View Orders!" class="btn btn-primary btn-xs pull-right"><i class="fa fa-search-plus"></i> View Print Orders</button>
+    <a role="button" href="/printers/{{_id}}" title="View Orders!" class="btn btn-primary btn-xs pull-right"><i class="fa fa-search-plus"></i> View Print Orders</a>
     {{else}}
-    <button type="button" id="submitOrder" title="Submit An Order!" class="btn btn-primary btn-xs pull-right"><i class="fa fa-cart-plus"></i> Submit Print Order</button>
+    <a role="button" href="/printers/{{_id}}" title="Submit An Order!" class="btn btn-primary btn-xs pull-right"><i class="fa fa-cart-plus"></i> Submit Print Order</a>
     <button type="button" id="contactOwner" title="Message Owner!" class="btn btn-primary btn-xs pull-right"><i class="fa fa-envelope"></i> Message Owner</button>
     {{/if}}
     </p>

@@ -59,16 +59,5 @@ Template.printer.helpers({
 Template.printer.events({
 	"click #delete": function () {
     	Meteor.call("deletePrinter", this._id);
-    },
-
-	"click #contactOwner": function () {
-    },
-
-    "click #viewOrders": function () {
-
-    },
-    
-    "click #submitOrder": function () {
-
     }
 });
