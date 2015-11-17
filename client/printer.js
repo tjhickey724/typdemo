@@ -3,21 +3,28 @@ Template.printerPage.events({
     
     event.preventDefault();
     
-    var body = $("#comment-body").val();
+    var page_count = $("#page_count").val();
+    var color_print = $("#color").val();
+    var duplex_print = $("#duplex").val();
     
-    $("#comment-body").val("");
+    $("#page_count").val("");
+    $("#color").val("");
+    $("#duplex").val("");
 
     var profile = Meteor.user().profile;
     
-    var comment = 
-        {
-        uid:Meteor.userId(),  
+    var order = {
+        customerId:Meteor.userId(),  
         who:profile["firstName"]+" "+profile["lastName"], 
-        body:body,
-        pid:this._id,
+        page_count:page_count,
+        color_print:color_print,
+        duplex_print:duplex_print,
+        printerId:this._id,
+        status:"Submitted",
         when: new Date()
-      };    
-    Comments.insert(comment);
+      };
+    console.dir(order);   
+    Orders.insert(order);
   }
 });
 
@@ -26,7 +33,7 @@ Template.printerPage.helpers({
     return Meteor.userId() != this.ownerId;
   },
   submittedOrders: function(){
-    return Orders.find({customerId:Meteor.userId()});
+    return Orders.find({customerId:Meteor.userId(),printerId:this._id});
   },
   receivedOrders: function(){
     return Orders.find({printerId:this._id});

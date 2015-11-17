@@ -8,7 +8,7 @@
 		  <input type="text" id="page_count" placeholder="Number of Pages to be printed" class="form-control">
 		</div>
 		<div class="input-group">
-		  <span class="input-group-addon">Print?</span>
+		  <span class="input-group-addon">Duplex Print?</span>
 		  <select class="form-control" name="duplex" id="duplex">
 		  	<option value="">Print double-sided?</option>
 		  	<option value="Yes">Yes</option>
@@ -16,7 +16,7 @@
 		  </select>
 		</div>
 		<div class="input-group">
-		  <span class="input-group-addon">Color?</span>
+		  <span class="input-group-addon">Color Print?</span>
 		  <select class="form-control" name="color" id="color">
 		  	<option value="">Does in color?</option>
 		  	<option value="Yes">Yes</option>
@@ -30,6 +30,7 @@
 	{{/if}}
 
 	<br>
+	{{#if notOwner}}
 	<div class="panel panel-primary">
 	  <div class="panel-heading">
 	  	<h5>Orders I Have Submitted</h5>
@@ -40,8 +41,7 @@
 		{{/each}}
 	  </div>
 	</div>
-
-	<br>
+	{{else}}
 	<div class="panel panel-primary">
 	  <div class="panel-heading">
 	  	<h5>Orders Submitted To My Printers</h5>
@@ -52,12 +52,13 @@
 		{{/each}}
 	  </div>
 	</div>
+	{{/if}}
 </template>
 
 
 <template name="printerDetails">
 	<div class="list-group-item">
-	<h5 class="list-group-item-heading"><i class="fa fa-print"></i> {{Printer}} <span class="label label-default label-xs">${{BWPrice}}/page</span>
+	<h5 class="list-group-item-heading"><i class="fa fa-print"></i> Printer Details: {{Printer}} <span class="label label-default label-xs">${{BWPrice}}/page</span>
 	{{#if ColorPrice}} <span class="label label-primary label-xs">${{ColorPrice}}/page</span>{{/if}}
 	</h5>
     <p class="list-group-item-text">Printer Deails: Duplex Printing: {{duplex}}, Color Printing: {{color}} </p>
@@ -76,8 +77,14 @@
 </template>
 
 <template name="submittedOrder">
-	<div class="list-group-item">
-    <p class="list-group-item-text"></p>
-    
+  <div class="list-group-item">
+	<h5 class="list-group-item-heading"><i class="fa fa-shopping-cart"></i> Order Details: {{page_count}} Color Print?: {{color}} Duplex Print?: {{duplex}}
+	</h5>
+    <p class="list-group-item-text">Cost Breakdown: {{page_count}}pages * price/page = $2.25</p>
+    <p class="list-group-item-text details">
+    <i class="fa fa-tag"></i> {{status}} <i class="fa fa-ellipsis-v"></i> 
+    <i class="fa fa-user"></i> {{who}} <i class="fa fa-ellipsis-v"></i>
+    <i class="fa fa-calendar-o"></i> {{when}}
+    </p>
   </div>
 </template>

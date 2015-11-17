@@ -1,0 +1,38 @@
+<template name="orders">
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	  	<h5>Orders Submitted To My Printers</h5>
+	  </div>
+	  <div class="panel-body list-group">
+	  	{{#each receivedOrders}}
+		{{> receivedOrder}}
+		{{/each}}
+	  </div>
+	</div>
+
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	  	<h5>Orders I Have Submitted</h5>
+	  </div>
+	  <div class="panel-body list-group">
+	  	{{#each submittedOrders}}
+		{{> submittedOrder}}
+		{{/each}}
+	  </div>
+	</div>
+
+	<br>
+	
+</template>
+
+<template name="receivedOrder2">
+	<div class="list-group-item">
+    <p class="list-group-item-text"></p>
+  </div>
+</template>
+
+<template name="submittedOrder2">
+	<div class="list-group-item">
+    <p class="list-group-item-text"></p>
+  </div>
+</template>
