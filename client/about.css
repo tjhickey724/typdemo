@@ -1,17 +1,12 @@
-#about {
-	background:green;
-	color: pink;
-}
-
-#about .jumbotron h1 {
-	font:bold 30pt Zapfino;
+#about .jumbotron h1	{
+	font:bold 30pt Zapfino	;
 	padding: 0in;
 	margin:0in;
 	background:yellow;
-}
+	}
 
-#about h2 {
-	background: red;
-	color: purple;
-	font: italic 20pt Zapfino font;
-}
+	#about h2 {
+		background: red;
+		color: white;
+		font: italic 20pt Zapfino font;
+	}
