@@ -2,27 +2,31 @@
 	{{> printerDetails}}
 
 	{{#if notOwner}}
-	<form id="orderform">
+	<form id="orderform" class="bg-info">
 		<div class="input-group">
 		  <span class="input-group-addon">Page Count</span>
 		  <input type="text" id="page_count" placeholder="Number of Pages to be printed" class="form-control">
 		</div>
+		{{#if duplexPrinter}}
 		<div class="input-group">
-		  <span class="input-group-addon">Print?</span>
+		  <span class="input-group-addon">Duplex Print?</span>
 		  <select class="form-control" name="duplex" id="duplex">
 		  	<option value="">Print double-sided?</option>
 		  	<option value="Yes">Yes</option>
 		  	<option value="No">No</option>
 		  </select>
 		</div>
+		{{/if}}
+		{{#if colorPrinter}}
 		<div class="input-group">
-		  <span class="input-group-addon">Color?</span>
+		  <span class="input-group-addon">Color Print?</span>
 		  <select class="form-control" name="color" id="color">
 		  	<option value="">Does in color?</option>
 		  	<option value="Yes">Yes</option>
 		  	<option value="No">No</option>
 		  </select>
 		</div>
+		{{/if}}
 		<div class="input-group text-center">
 		  <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane-o"></i> Submit Order</button>
 		</div>
@@ -30,46 +34,30 @@
 	{{/if}}
 
 	<br>
+	{{#if notOwner}}
 	<div class="panel panel-primary">
 	  <div class="panel-heading">
-	  	<h5>Orders I Have Submitted</h5>
+	  	<h5>Orders I Have Submitted To This Printer</h5>
 	  </div>
 	  <div class="panel-body list-group">
 	  	{{#each submittedOrders}}
 		{{> submittedOrder}}
 		{{/each}}
 	  </div>
-	
-
-
-
-
-
-
-
 	</div>
 
-	<br>
+	{{else}}
 	<div class="panel panel-primary">
 	  <div class="panel-heading">
-	  	<h5>Orders Submitted To My Printers</h5>
+	  	<h5>Orders Submitted To This Printer</h5>
 	  </div>
-	  
-
-
-
-
-
-
-
-
-
 	  <div class="panel-body list-group">
 	  	{{#each receivedOrders}}
 		{{> receivedOrder}}
 		{{/each}}
 	  </div>
 	</div>
+	{{/if}}
 </template>
 
 
