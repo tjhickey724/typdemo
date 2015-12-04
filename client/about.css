@@ -1,16 +1,16 @@
 #about {
 	background: white;
-	color:blue;
+	color:black;
 	}
 
 #about .jumbotron h1	{
 	font:bold 30pt Zapfino;
 	padding: 0in;
 	margin:0in;
-	background:	#0028ff;
+	background:#ffd700;
 	}
 #about h2 {
-		background: blue;
+		background: black;
 		color: white;
 		font: italic 20pt Zapfino;
 	}
