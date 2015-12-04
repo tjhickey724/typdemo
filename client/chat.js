@@ -3,17 +3,23 @@ Template.chat.events({
 		
 		event.preventDefault();
 		
-		var x = $("#chatinput").val()
+
+		var Name = $("#Name").val()
+		console.log(Name);
+		var Hall = $("#Hall").val()
+		console.log(Hall);
 		
-		$("#chatinput").val("");
+		
+		$("#Name").val("");
+		$("#Hall").val("");
 
 		var profile = Meteor.user().profile;
 		
 		var chatline = 
 		  	{
 				uid:Meteor.userId(),  
-				who:profile["firstName"]+" "+profile["lastName"], 
-				what:x,
+				who:Name,
+				where:Hall,
 				when: new Date()
 			};
 			

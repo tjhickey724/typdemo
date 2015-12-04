@@ -1,9 +1,6 @@
 
 <template name="layout">
 	<div class="container">
-		<h1 class="text-center"> MKTYP Team Project Name</h1>
-		
-		<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
@@ -23,16 +20,18 @@
 		      	<ul class="nav navbar-nav">
 					<li><a href="{{pathFor 'about'}}">About</a></li>
 					<li><a href="{{pathFor 'chat'}}">Chat</a></li>
+					<li><a href="{{pathFor 'printers'}}">Printers <span class="label label-default label-xs">{{numprinters}}</span></a></li>
+					<li><a href="{{pathFor 'orders'}}">Print Orders</a> </li>		
 				</ul>			
+
 
 				<ul class="nav navbar-nav navbar-right">
 			            {{> loginButtons}} <!-- here -->
 				</ul>
 					    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
+		  </div><!-- /.cogitntainer-fluid -->
 		</nav>
 		
-		<!-- Here is where the actual content of the page gets inserted by the router! -->
 		{{> yield}}
 		
 	</div>
